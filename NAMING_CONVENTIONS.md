@@ -43,9 +43,9 @@ x = "John"
 arr = [1, 2, 3]
 
 # Good
-secondsPerDay = 86400
-userName = "John"
-userAges = [1, 2, 3]
+seconds_per_day = 86400
+user_name = "John"
+user_ages = [1, 2, 3]
 ```
 
 #### Include Units When Relevant
@@ -402,17 +402,17 @@ def auth(u, p):
 
 #### Good Naming
 ```python
-def authenticateUser(username, password):
+def authenticate_user(username, password):
     MINIMUM_USERNAME_LENGTH = 3
     MINIMUM_PASSWORD_LENGTH = 6
     
     if len(username) < MINIMUM_USERNAME_LENGTH or len(password) < MINIMUM_PASSWORD_LENGTH:
         return False
     
-    userRecord = database.getUserByUsername(username)
-    hashedPassword = hashPassword(password)
+    user_record = database.get_user_by_username(username)
+    hashed_password = hash_password(password)
     
-    if userRecord and userRecord['passwordHash'] == hashedPassword:
+    if user_record and user_record['password_hash'] == hashed_password:
         return True
     
     return False
@@ -513,19 +513,19 @@ def p(l):
 
 #### Good Naming
 ```python
-def doublePositiveNumbers(numberList):
-    doubledNumbers = []
+def double_positive_numbers(number_list):
+    doubled_numbers = []
     
-    for number in numberList:
+    for number in number_list:
         if number > 0:
-            doubledNumber = number * 2
-            doubledNumbers.append(doubledNumber)
+            doubled_number = number * 2
+            doubled_numbers.append(doubled_number)
     
-    return doubledNumbers
+    return doubled_numbers
 
 # Or even better with list comprehension
-def doublePositiveNumbers(numberList):
-    return [number * 2 for number in numberList if number > 0]
+def double_positive_numbers(number_list):
+    return [number * 2 for number in number_list if number > 0]
 ```
 
 ## Best Practices Summary
