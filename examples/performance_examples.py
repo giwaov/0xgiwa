@@ -34,11 +34,11 @@ test_list1 = list(range(1000))
 test_list2 = list(range(0, 2000, 2))
 
 start = time.perf_counter()
-find_common_elements_slow(test_list1, test_list2)
+result1 = find_common_elements_slow(test_list1, test_list2)
 print(f'Slow (nested loops): {(time.perf_counter() - start) * 1000:.2f}ms')
 
 start = time.perf_counter()
-find_common_elements_fast(test_list1, test_list2)
+result2 = find_common_elements_fast(test_list1, test_list2)
 print(f'Fast (set lookup): {(time.perf_counter() - start) * 1000:.2f}ms\n')
 
 # ============================================================================
@@ -61,11 +61,11 @@ def build_string_fast(parts: List[str]) -> str:
 test_parts = [f'word{i}' for i in range(1000)]
 
 start = time.perf_counter()
-build_string_slow(test_parts)
+result1 = build_string_slow(test_parts)
 print(f'Slow (concatenation): {(time.perf_counter() - start) * 1000:.2f}ms')
 
 start = time.perf_counter()
-build_string_fast(test_parts)
+result2 = build_string_fast(test_parts)
 print(f'Fast (join): {(time.perf_counter() - start) * 1000:.2f}ms\n')
 
 # ============================================================================
@@ -88,11 +88,11 @@ def square_numbers_fast(numbers: List[int]) -> List[int]:
 test_numbers = list(range(10000))
 
 start = time.perf_counter()
-square_numbers_slow(test_numbers)
+result1 = square_numbers_slow(test_numbers)
 print(f'Slow (loop with append): {(time.perf_counter() - start) * 1000:.2f}ms')
 
 start = time.perf_counter()
-square_numbers_fast(test_numbers)
+result2 = square_numbers_fast(test_numbers)
 print(f'Fast (list comprehension): {(time.perf_counter() - start) * 1000:.2f}ms\n')
 
 # ============================================================================
@@ -115,11 +115,11 @@ def fibonacci_fast(n: int) -> int:
     return fibonacci_fast(n - 1) + fibonacci_fast(n - 2)
 
 start = time.perf_counter()
-fibonacci_slow(30)
+result1 = fibonacci_slow(30)
 print(f'Slow (no memoization) - fib(30): {(time.perf_counter() - start) * 1000:.2f}ms')
 
 start = time.perf_counter()
-fibonacci_fast(30)
+result2 = fibonacci_fast(30)
 print(f'Fast (memoized) - fib(30): {(time.perf_counter() - start) * 1000:.2f}ms\n')
 
 # ============================================================================
@@ -140,11 +140,11 @@ def process_large_dataset_fast(n: int) -> int:
 n = 1000000
 
 start = time.perf_counter()
-process_large_dataset_slow(n)
+result1 = process_large_dataset_slow(n)
 print(f'Slow (list): {(time.perf_counter() - start) * 1000:.2f}ms')
 
 start = time.perf_counter()
-process_large_dataset_fast(n)
+result2 = process_large_dataset_fast(n)
 print(f'Fast (generator): {(time.perf_counter() - start) * 1000:.2f}ms\n')
 
 # ============================================================================
@@ -196,11 +196,11 @@ def has_negative_fast(numbers: List[int]) -> bool:
 test_numbers = list(range(10000)) + [-1]
 
 start = time.perf_counter()
-has_negative_slow(test_numbers)
+result1 = has_negative_slow(test_numbers)
 print(f'Slow (no short-circuit): {(time.perf_counter() - start) * 1000:.2f}ms')
 
 start = time.perf_counter()
-has_negative_fast(test_numbers)
+result2 = has_negative_fast(test_numbers)
 print(f'Fast (any with short-circuit): {(time.perf_counter() - start) * 1000:.2f}ms\n')
 
 # ============================================================================
@@ -223,11 +223,11 @@ def compute_fast(numbers: List[int]) -> List[int]:
 test_numbers = list(range(100000))
 
 start = time.perf_counter()
-compute_slow(test_numbers)
+result1 = compute_slow(test_numbers)
 print(f'Slow (global lookup): {(time.perf_counter() - start) * 1000:.2f}ms')
 
 start = time.perf_counter()
-compute_fast(test_numbers)
+result2 = compute_fast(test_numbers)
 print(f'Fast (local variable): {(time.perf_counter() - start) * 1000:.2f}ms\n')
 
 # ============================================================================

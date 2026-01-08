@@ -86,7 +86,7 @@ function profile(fn, label = 'Operation') {
 }
 
 // Example usage
-if (require.main === module) {
+if (typeof require !== 'undefined' && require.main === module) {
   console.log('=== Benchmarking Utilities Examples ===\n');
   
   // Example 1: Simple benchmark
@@ -148,9 +148,11 @@ if (require.main === module) {
   }, 'Large array operation');
 }
 
-module.exports = {
-  benchmark,
-  compare,
-  memorySnapshot,
-  profile
-};
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = {
+    benchmark,
+    compare,
+    memorySnapshot,
+    profile
+  };
+}

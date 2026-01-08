@@ -35,11 +35,11 @@ const testArr1 = Array.from({ length: 1000 }, (_, i) => i);
 const testArr2 = Array.from({ length: 1000 }, (_, i) => i * 2);
 
 console.time('Slow (nested loops)');
-findCommonElementsSlow(testArr1, testArr2);
+const result1 = findCommonElementsSlow(testArr1, testArr2);
 console.timeEnd('Slow (nested loops)');
 
 console.time('Fast (Set lookup)');
-findCommonElementsFast(testArr1, testArr2);
+const result2 = findCommonElementsFast(testArr1, testArr2);
 console.timeEnd('Fast (Set lookup)');
 
 console.log('\n');
@@ -67,11 +67,11 @@ function buildStringFast(parts) {
 const testParts = Array.from({ length: 1000 }, (_, i) => `word${i}`);
 
 console.time('Slow (concatenation)');
-buildStringSlow(testParts);
+const result3 = buildStringSlow(testParts);
 console.timeEnd('Slow (concatenation)');
 
 console.time('Fast (array join)');
-buildStringFast(testParts);
+const result4 = buildStringFast(testParts);
 console.timeEnd('Fast (array join)');
 
 console.log('\n');
@@ -110,11 +110,11 @@ const testData = {
 };
 
 console.time('Slow (repeated access)');
-processDataSlow(testData);
+const result5 = processDataSlow(testData);
 console.timeEnd('Slow (repeated access)');
 
 console.time('Fast (cached properties)');
-processDataFast(testData);
+const result6 = processDataFast(testData);
 console.timeEnd('Fast (cached properties)');
 
 console.log('\n');
@@ -144,11 +144,11 @@ const fibonacciFast = (() => {
 })();
 
 console.time('Slow (no memoization) - fib(35)');
-fibonacciSlow(35);
+const result7 = fibonacciSlow(35);
 console.timeEnd('Slow (no memoization) - fib(35)');
 
 console.time('Fast (memoized) - fib(35)');
-fibonacciFast(35);
+const result8 = fibonacciFast(35);
 console.timeEnd('Fast (memoized) - fib(35)');
 
 console.log('\n');
@@ -180,11 +180,11 @@ function processArrayFast(arr) {
 const testArray = Array.from({ length: 100000 }, (_, i) => i);
 
 console.time('Slow (multiple iterations)');
-processArraySlow(testArray);
+const result9 = processArraySlow(testArray);
 console.timeEnd('Slow (multiple iterations)');
 
 console.time('Fast (single iteration)');
-processArrayFast(testArray);
+const result10 = processArrayFast(testArray);
 console.timeEnd('Fast (single iteration)');
 
 console.log('\n');
